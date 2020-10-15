@@ -30,7 +30,7 @@ public class MarsRover {
                 .forEach(command -> this.executeCommand(command));
     }
 
-    private void executeCommand(String command) {
+    public void executeCommand(String command) {
         if (command.equals("M")){
             move();
         }
