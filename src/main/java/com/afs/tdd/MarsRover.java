@@ -40,6 +40,9 @@ public class MarsRover {
         else if (command.equals("R")){
             turnRight();
         }
+        else {
+            throw new IllegalArgumentException("CommandNotDefinedException");
+        }
     }
 
     private void turnRight() {
