@@ -34,10 +34,10 @@ public class MarsRover {
         if (command.equals("M")){
             move();
         }
-        if (command.equals("L")){
+        else if (command.equals("L")){
             turnLeft();
         }
-        if (command.equals("R")){
+        else if (command.equals("R")){
             turnRight();
         }
     }
@@ -76,13 +76,13 @@ public class MarsRover {
         if (heading.equals("N")){
             locationY += 1;
         }
-        if (heading.equals("S")){
+        else if (heading.equals("S")){
             locationY -= 1;
         }
-        if (heading.equals("E")){
+        else if (heading.equals("E")){
             locationX += 1;
         }
-        if (heading.equals("W")){
+        else if (heading.equals("W")){
             locationX -= 1;
         }
     }
