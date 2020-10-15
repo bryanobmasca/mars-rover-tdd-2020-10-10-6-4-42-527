@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class MarsRoverTest {
     @Test
-    void should_return_x_0_y_1_heading_N_when_execute_given_x_0_y_0_heading_N_and_command_M() {
+    void should_return_x_0_y_1_heading_N_when_execute_given_x_0_y_0_heading_N_and_command_M() throws CommandNotDefinedException {
         //given
         MarsRover marsRover = new MarsRover(0,0,"N");
         //when
@@ -19,7 +19,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_return_x_0_y_0_heading_W_when_execute_given_x_0_y_0_heading_N_and_command_L() {
+    void should_return_x_0_y_0_heading_W_when_execute_given_x_0_y_0_heading_N_and_command_L() throws CommandNotDefinedException {
         //given
         MarsRover marsRover = new MarsRover(0,0,"N");
         //when
@@ -31,7 +31,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_return_x_0_y_0_heading_E_when_execute_given_x_0_y_0_heading_N_and_command_R() {
+    void should_return_x_0_y_0_heading_E_when_execute_given_x_0_y_0_heading_N_and_command_R() throws CommandNotDefinedException {
         //given
         MarsRover marsRover = new MarsRover(0,0,"N");
         //when
@@ -43,7 +43,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_return_x_0_y_minus1_heading_S_when_execute_given_x_0_y_0_heading_S_and_command_M() {
+    void should_return_x_0_y_minus1_heading_S_when_execute_given_x_0_y_0_heading_S_and_command_M() throws CommandNotDefinedException {
         //given
         MarsRover marsRover = new MarsRover(0,0,"S");
         //when
@@ -55,7 +55,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_return_x_0_y_0_heading_E_when_execute_given_x_0_y_0_heading_S_and_command_L() {
+    void should_return_x_0_y_0_heading_E_when_execute_given_x_0_y_0_heading_S_and_command_L() throws CommandNotDefinedException {
         //given
         MarsRover marsRover = new MarsRover(0,0,"S");
         //when
@@ -67,7 +67,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_return_x_0_y_0_heading_W_when_execute_given_x_0_y_0_heading_S_and_command_R() {
+    void should_return_x_0_y_0_heading_W_when_execute_given_x_0_y_0_heading_S_and_command_R() throws CommandNotDefinedException {
         //given
         MarsRover marsRover = new MarsRover(0,0,"S");
         //when
@@ -79,7 +79,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_return_x_1_y_0_heading_E_when_execute_given_x_0_y_0_heading_E_and_command_M() {
+    void should_return_x_1_y_0_heading_E_when_execute_given_x_0_y_0_heading_E_and_command_M() throws CommandNotDefinedException {
         //given
         MarsRover marsRover = new MarsRover(0,0,"E");
         //when
@@ -91,7 +91,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_return_x_0_y_0_heading_N_when_execute_given_x_0_y_0_heading_E_and_command_L() {
+    void should_return_x_0_y_0_heading_N_when_execute_given_x_0_y_0_heading_E_and_command_L() throws CommandNotDefinedException {
         //given
         MarsRover marsRover = new MarsRover(0,0,"E");
         //when
@@ -103,7 +103,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_return_x_0_y_0_heading_S_when_execute_given_x_0_y_0_heading_E_and_command_R() {
+    void should_return_x_0_y_0_heading_S_when_execute_given_x_0_y_0_heading_E_and_command_R() throws CommandNotDefinedException {
         //given
         MarsRover marsRover = new MarsRover(0,0,"E");
         //when
@@ -115,7 +115,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_return_x_minus1_y_0_heading_W_when_execute_given_x_0_y_0_heading_W_and_command_M() {
+    void should_return_x_minus1_y_0_heading_W_when_execute_given_x_0_y_0_heading_W_and_command_M() throws CommandNotDefinedException {
         //given
         MarsRover marsRover = new MarsRover(0,0,"W");
         //when
@@ -127,7 +127,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_return_x_0_y_0_heading_S_when_execute_given_x_0_y_0_heading_W_and_command_L() {
+    void should_return_x_0_y_0_heading_S_when_execute_given_x_0_y_0_heading_W_and_command_L() throws CommandNotDefinedException {
         //given
         MarsRover marsRover = new MarsRover(0,0,"W");
         //when
@@ -139,7 +139,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_return_x_0_y_0_heading_N_when_execute_given_x_0_y_0_heading_W_and_command_R() {
+    void should_return_x_0_y_0_heading_N_when_execute_given_x_0_y_0_heading_W_and_command_R() throws CommandNotDefinedException {
         //given
         MarsRover marsRover = new MarsRover(0,0,"W");
         //when
@@ -153,7 +153,7 @@ class MarsRoverTest {
     @Test
     void should_return_CommandNotDefinedException_when_execute_given_x_0_y_0_heading_N_and_command_F() {
         //given and when
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+        Exception exception = assertThrows(CommandNotDefinedException.class, () -> {
             MarsRover command = new MarsRover(0,0,"N");
             command.executeCommand("F");
         });
@@ -162,7 +162,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_return_x_minus1_y_1_heading_N_when_execute_given_x_0_y_0_heading_N_and_command_MLMR() {
+    void should_return_x_minus1_y_1_heading_N_when_execute_given_x_0_y_0_heading_N_and_command_MLMR() throws CommandNotDefinedException {
         //given
         MarsRover marsRover = new MarsRover(0,0,"N");
         //when
