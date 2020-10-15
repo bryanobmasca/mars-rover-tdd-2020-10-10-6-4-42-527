@@ -3,6 +3,13 @@ package com.afs.tdd;
 import java.util.Arrays;
 
 public class MarsRover {
+    private static final String HEADING_NORTH = "N";
+    private static final String HEADING_SOUTH = "S";
+    private static final String HEADING_EAST = "E";
+    private static final String HEADING_WEST = "W";
+    private static final String COMMAND_MOVE = "M";
+    private static final String COMMAND_LEFT = "L";
+    private static final String COMMAND_RIGHT = "R";
     private int locationX;
     private int locationY;
     private String heading;
@@ -32,13 +39,13 @@ public class MarsRover {
     }
 
     public void executeCommand(String command) throws CommandNotDefinedException {
-        if (command.equals("M")){
+        if (command.equals(COMMAND_MOVE)){
             move();
         }
-        else if (command.equals("L")){
+        else if (command.equals(COMMAND_LEFT)){
             turnLeft();
         }
-        else if (command.equals("R")){
+        else if (command.equals(COMMAND_RIGHT)){
             turnRight();
         }
         else {
@@ -47,46 +54,46 @@ public class MarsRover {
     }
 
     private void turnRight() {
-        if (heading.equals("S")){
-            heading = "W";
+        if (heading.equals(HEADING_SOUTH)){
+            heading = HEADING_WEST;
         }
-        else if (heading.equals("E")){
-            heading = "S";
+        else if (heading.equals(HEADING_EAST)){
+            heading = HEADING_SOUTH;
         }
-        else if (heading.equals("N")){
-            heading = "E";
+        else if (heading.equals(HEADING_NORTH)){
+            heading = HEADING_EAST;
         }
-        else if (heading.equals("W")){
-            heading = "N";
+        else if (heading.equals(HEADING_WEST)){
+            heading = HEADING_NORTH;
         }
     }
 
     private void turnLeft() {
-        if (heading.equals("E")){
-            heading = "N";
+        if (heading.equals(HEADING_EAST)){
+            heading = HEADING_NORTH;
         }
-        else if (heading.equals("S")){
-            heading = "E";
+        else if (heading.equals(HEADING_SOUTH)){
+            heading = HEADING_EAST;
         }
-        else if (heading.equals("W")){
-            heading = "S";
+        else if (heading.equals(HEADING_WEST)){
+            heading = HEADING_SOUTH;
         }
-        else if (heading.equals("N")){
-            heading = "W";
+        else if (heading.equals(HEADING_NORTH)){
+            heading = HEADING_WEST;
         }
     }
 
     private void move() {
-        if (heading.equals("N")){
+        if (heading.equals(HEADING_NORTH)){
             locationY++;
         }
-        else if (heading.equals("S")){
+        else if (heading.equals(HEADING_SOUTH)){
             locationY--;
         }
-        else if (heading.equals("E")){
+        else if (heading.equals(HEADING_EAST)){
             locationX++;
         }
-        else if (heading.equals("W")){
+        else if (heading.equals(HEADING_WEST)){
             locationX--;
         }
     }
