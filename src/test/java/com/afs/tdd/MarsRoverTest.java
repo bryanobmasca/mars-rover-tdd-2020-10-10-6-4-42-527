@@ -19,7 +19,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_return_x_0_y_0_heading_W_when_execute_give_x_0_y_0_heading_N_and_command_L() {
+    void should_return_x_0_y_0_heading_W_when_execute_given_x_0_y_0_heading_N_and_command_L() {
         //given
         MarsRover marsRover = new MarsRover(0,0,"N");
         //when
@@ -31,7 +31,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_return_x_0_y_0_heading_E_when_execute_give_x_0_y_0_heading_N_and_command_R() {
+    void should_return_x_0_y_0_heading_E_when_execute_given_x_0_y_0_heading_N_and_command_R() {
         //given
         MarsRover marsRover = new MarsRover(0,0,"N");
         //when
@@ -55,7 +55,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_return_x_0_y_0_heading_E_when_execute_give_x_0_y_0_heading_S_and_command_L() {
+    void should_return_x_0_y_0_heading_E_when_execute_given_x_0_y_0_heading_S_and_command_L() {
         //given
         MarsRover marsRover = new MarsRover(0,0,"S");
         //when
@@ -67,7 +67,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_return_x_0_y_0_heading_W_when_execute_give_x_0_y_0_heading_S_and_command_R() {
+    void should_return_x_0_y_0_heading_W_when_execute_given_x_0_y_0_heading_S_and_command_R() {
         //given
         MarsRover marsRover = new MarsRover(0,0,"S");
         //when
@@ -91,7 +91,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_return_x_0_y_0_heading_N_when_execute_give_x_0_y_0_heading_E_and_command_L() {
+    void should_return_x_0_y_0_heading_N_when_execute_given_x_0_y_0_heading_E_and_command_L() {
         //given
         MarsRover marsRover = new MarsRover(0,0,"E");
         //when
@@ -103,7 +103,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_return_x_0_y_0_heading_S_when_execute_give_x_0_y_0_heading_E_and_command_R() {
+    void should_return_x_0_y_0_heading_S_when_execute_given_x_0_y_0_heading_E_and_command_R() {
         //given
         MarsRover marsRover = new MarsRover(0,0,"E");
         //when
@@ -127,7 +127,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_return_x_0_y_0_heading_S_when_execute_give_x_0_y_0_heading_W_and_command_L() {
+    void should_return_x_0_y_0_heading_S_when_execute_given_x_0_y_0_heading_W_and_command_L() {
         //given
         MarsRover marsRover = new MarsRover(0,0,"W");
         //when
@@ -139,7 +139,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_return_x_0_y_0_heading_N_when_execute_give_x_0_y_0_heading_W_and_command_R() {
+    void should_return_x_0_y_0_heading_N_when_execute_given_x_0_y_0_heading_W_and_command_R() {
         //given
         MarsRover marsRover = new MarsRover(0,0,"W");
         //when
@@ -151,7 +151,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_return_CommandNotDefinedException_when_execute_give_x_0_y_0_heading_N_and_command_F() {
+    void should_return_CommandNotDefinedException_when_execute_given_x_0_y_0_heading_N_and_command_F() {
         //given and when
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
             MarsRover command = new MarsRover(0,0,"N");
@@ -159,5 +159,17 @@ class MarsRoverTest {
         });
         //then
         assertEquals("CommandNotDefinedException", exception.getMessage());
+    }
+
+    @Test
+    void should_return_x_minus1_y_1_heading_N_when_execute_given_x_0_y_0_heading_N_and_command_MLMR() {
+        //given
+        MarsRover marsRover = new MarsRover(0,0,"N");
+        //when
+        marsRover.executeCommands("MLMR");
+        //then
+        assertEquals(-1,marsRover.getLocationX());
+        assertEquals(1,marsRover.getLocationY());
+        assertEquals("N",marsRover.getHeading());
     }
 }
