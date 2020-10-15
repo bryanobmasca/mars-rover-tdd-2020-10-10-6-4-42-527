@@ -55,6 +55,9 @@ public class MarsRover {
         if (heading.equals("N")){
             heading = "W";
         }
+        if (heading.equals("E")){
+            heading = "N";
+        }
         if (heading.equals("S")){
             heading = "E";
         }
