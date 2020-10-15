@@ -78,16 +78,16 @@ public class MarsRover {
 
     private void move() {
         if (heading.equals("N")){
-            locationY += 1;
+            locationY++;
         }
         else if (heading.equals("S")){
-            locationY -= 1;
+            locationY--;
         }
         else if (heading.equals("E")){
-            locationX += 1;
+            locationX++;
         }
         else if (heading.equals("W")){
-            locationX -= 1;
+            locationX--;
         }
     }
 }
