@@ -39,62 +39,69 @@ public class MarsRover {
     }
 
     public void executeCommand(String command) throws CommandNotDefinedException {
-        if (command.equals(COMMAND_MOVE)){
-            move();
-        }
-        else if (command.equals(COMMAND_LEFT)){
-            turnLeft();
-        }
-        else if (command.equals(COMMAND_RIGHT)){
-            turnRight();
-        }
-        else {
-            throw new CommandNotDefinedException("CommandNotDefinedException");
+        switch (command) {
+            case COMMAND_MOVE:
+                move();
+                break;
+            case COMMAND_LEFT:
+                turnLeft();
+                break;
+            case COMMAND_RIGHT:
+                turnRight();
+                break;
+            default:
+                throw new CommandNotDefinedException("CommandNotDefinedException");
         }
     }
 
     private void turnRight() {
-        if (heading.equals(HEADING_SOUTH)){
-            heading = HEADING_WEST;
-        }
-        else if (heading.equals(HEADING_EAST)){
-            heading = HEADING_SOUTH;
-        }
-        else if (heading.equals(HEADING_NORTH)){
-            heading = HEADING_EAST;
-        }
-        else if (heading.equals(HEADING_WEST)){
-            heading = HEADING_NORTH;
+        switch (heading) {
+            case HEADING_SOUTH:
+                heading = HEADING_WEST;
+                break;
+            case HEADING_EAST:
+                heading = HEADING_SOUTH;
+                break;
+            case HEADING_NORTH:
+                heading = HEADING_EAST;
+                break;
+            case HEADING_WEST:
+                heading = HEADING_NORTH;
+                break;
         }
     }
 
     private void turnLeft() {
-        if (heading.equals(HEADING_EAST)){
-            heading = HEADING_NORTH;
-        }
-        else if (heading.equals(HEADING_SOUTH)){
-            heading = HEADING_EAST;
-        }
-        else if (heading.equals(HEADING_WEST)){
-            heading = HEADING_SOUTH;
-        }
-        else if (heading.equals(HEADING_NORTH)){
-            heading = HEADING_WEST;
+        switch (heading) {
+            case HEADING_EAST:
+                heading = HEADING_NORTH;
+                break;
+            case HEADING_SOUTH:
+                heading = HEADING_EAST;
+                break;
+            case HEADING_WEST:
+                heading = HEADING_SOUTH;
+                break;
+            case HEADING_NORTH:
+                heading = HEADING_WEST;
+                break;
         }
     }
 
     private void move() {
-        if (heading.equals(HEADING_NORTH)){
-            locationY++;
-        }
-        else if (heading.equals(HEADING_SOUTH)){
-            locationY--;
-        }
-        else if (heading.equals(HEADING_EAST)){
-            locationX++;
-        }
-        else if (heading.equals(HEADING_WEST)){
-            locationX--;
+        switch (heading) {
+            case HEADING_NORTH:
+                locationY++;
+                break;
+            case HEADING_SOUTH:
+                locationY--;
+                break;
+            case HEADING_EAST:
+                locationX++;
+                break;
+            case HEADING_WEST:
+                locationX--;
+                break;
         }
     }
 }
