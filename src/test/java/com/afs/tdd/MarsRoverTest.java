@@ -154,8 +154,8 @@ class MarsRoverTest {
     void should_return_CommandNotDefinedException_when_execute_given_x_0_y_0_heading_N_and_command_F() {
         //given and when
         Exception exception = assertThrows(CommandNotDefinedException.class, () -> {
-            MarsRover command = new MarsRover(0,0,"N");
-            command.executeCommand("F");
+            MarsRover marsRover = new MarsRover(0,0,"N");
+            marsRover.executeCommand("F");
         });
         //then
         assertEquals("CommandNotDefinedException", exception.getMessage());
